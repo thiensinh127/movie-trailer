@@ -1,9 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import logo from "./logo.svg";
+import "./App.css";
+import React from "react";    
+import { Button } from "@chakra-ui/react";
 
-
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -19,10 +19,10 @@ function App() {
         >
           Learn React
         </a>
-        <Button colorScheme='blue'>test</Button>
+        <Button colorScheme="blue">test</Button>
       </header>
     </div>
   );
-}
+};
 
 export default App;
