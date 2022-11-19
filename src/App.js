@@ -1,7 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import { Button, ButtonGroup } from '@chakra-ui/react'
-
+import React from "react";
+import "./App.css";
+import logo from "./logo.svg";
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
         >
           Learn React
         </a>
-        <Button colorScheme='blue'>test</Button>
       </header>
     </div>
   );

@@ -2,21 +2,26 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import App from "./App";
+import Layout from "./layouts/MainLayout";
 import reportWebVitals from "./reportWebVitals";
-import { store } from "./app/store";
+import { store } from "./store/store";
 import { Provider } from "react-redux";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./assets/scss/Theme.js";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Layout />,
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </Provider>
 );
 
