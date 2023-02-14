@@ -1,13 +1,12 @@
 import React from "react";
+import { ConfigProvider } from "antd";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
+import "./assets/scss/styles.css";
 import Layout from "./layouts/MainLayout";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
-import { ThemeProvider } from "@material-ui/core/styles";
-import theme from "./assets/scss/Theme.js";
 
 const router = createBrowserRouter([
   {
@@ -19,9 +18,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
+    <ConfigProvider>
       <RouterProvider router={router} />
-    </ThemeProvider>
+    </ConfigProvider>
   </Provider>
 );
 

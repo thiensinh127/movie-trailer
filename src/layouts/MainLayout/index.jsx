@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../../pages/components/Footer";
-import Header from "../../pages/components/Header";
+import Footer from "../../pages/Footer";
+import Header from "../../pages/Header";
 
 const MainLayout = () => {
   return (
