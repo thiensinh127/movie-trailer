@@ -1,7 +1,12 @@
 import React from "react";
 
 const RightMenu = () => {
-  return <div>Right Menu</div>;
+  return (
+    <div className="rightMenu">
+      <div>Login</div>
+      <div>Logout</div>
+    </div>
+  );
 };
 
 export default RightMenu;

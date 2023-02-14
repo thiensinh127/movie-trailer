@@ -1,0 +1,27 @@
+// Variable color
+$color-black: #000;
+$color-white: #fff;
+$color-red: #fb4226;
+$color-gray-0: #9b9b9b;
+$color-gray-1: #949494;
+$color-green: #00ac4d;
+
+// Variable font-size
+$fs-0: 13px;
+$fs-1: 14px;
+$fs-2: 16px;
+$fs-3: 20px;
+$fs-4: 24px;
+
+// Variable font-weight
+$fw-0: 400;
+$fw-1: 500;
+$fw-2: 700;
+
+// Breakpoints
+$breakpoints: (
+  "extra-lage": 1200px,
+  "lage": 992px,
+  "medium": 768px,
+  "small": 576px,
+);

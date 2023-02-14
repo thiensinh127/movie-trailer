@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LeftMenu from "./components/LeftMenu";
 import RightMenu from "./components/RightMenu";
 import { Drawer, Button } from "antd";
+import Logo from "../../assets/img/web-logo.png";
 
 const Header = () => {
   const [visible, setVisible] = useState(false);
@@ -15,16 +16,12 @@ const Header = () => {
   };
 
   return (
-    <nav className="menuBar">
+    <nav className="Header">
       <div className="logo">
-        <a href="www.marca.com">logo</a>
+        <img className="img" src={Logo} alt="" />
       </div>
-      <div className="leftMenu">
-        <LeftMenu />
-      </div>
-      <div className="rightMenu">
-        <RightMenu />
-      </div>
+      <LeftMenu />
+      <RightMenu />
       <Button className="barsMenu" onClick={showDrawer}>
         <span className="barsBtn" />
       </Button>

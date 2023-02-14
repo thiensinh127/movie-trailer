@@ -2,7 +2,7 @@ import React from "react";
 import { ConfigProvider } from "antd";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./assets/scss/styles.css";
+import "./assets/scss/styles.scss";
 import Layout from "./layouts/MainLayout";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store/store";
