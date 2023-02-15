@@ -1,7 +1,10 @@
 @import "Helper/variable";
+@import "Helper/mixin";
 
-@import "./page/BasiLayout.scss";
-@import "./page/Header.scss";
+@import "./page/basiclayout";
+@import "./page/header";
+@import "./page/login";
+@import "./page/signup";
 @import "./components/carousel";
 
 @import "antd/dist/reset.css";

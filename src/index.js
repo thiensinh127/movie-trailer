@@ -7,11 +7,21 @@ import Layout from "./layouts/MainLayout";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
   },
 ]);
 

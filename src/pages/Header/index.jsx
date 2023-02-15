@@ -22,18 +22,20 @@ const Header = () => {
       </div>
       <LeftMenu />
       <RightMenu />
+
       <Button className="barsMenu" onClick={showDrawer}>
         <span className="barsBtn" />
       </Button>
       <Drawer
-        title="Basic Drawer"
+        title={<RightMenu />}
         placement="right"
         closable={false}
         onClose={onClose}
-        visible={visible}
+        open={visible}
+        className="drawer"
+        width={250}
       >
         <LeftMenu />
-        <RightMenu />
       </Drawer>
     </nav>
   );
