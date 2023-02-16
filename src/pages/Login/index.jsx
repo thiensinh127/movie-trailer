@@ -4,6 +4,7 @@ import { Form, Input, Button } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import Logo from "../../assets/img/web-logo.png";
 import GoogleIcon from "../../assets/img/google-icon.png";
+import { signInWithGoogle } from "../../services/firebase";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -55,12 +56,12 @@ const Login = () => {
         </div>
 
         <Form.Item
-          label="Username"
-          name="username"
+          label="Email"
+          name="email"
           rules={[
             {
               required: true,
-              message: "Please input your username!",
+              message: "Please input your email!",
             },
           ]}
         >
@@ -91,10 +92,10 @@ const Login = () => {
         </Form.Item>
 
         <div className="footer">
-          <button className="btnGoogle">
+          <Button className="btnGoogle" onClick={signInWithGoogle}>
             <img src={GoogleIcon} alt="" />
             <span>Google Login</span>
-          </button>
+          </Button>
         </div>
 
         <div className="footer">

@@ -74,7 +74,7 @@
         border-radius: 6px;
         padding: 5px;
         cursor: pointer;
-        margin-bottom: $mg-1 - 4;
+        margin-bottom: $mg-2;
         margin-top: $mg-2;
         img {
           padding-right: 8px;
@@ -102,6 +102,12 @@
   }
   .ant-btn-primary {
     background-color: $color-red;
+  }
+  .ant-btn > span {
+    display: inline-block !important;
+  }
+  .ant-btn-default:not(:disabled):hover {
+    color: unset;
   }
 }
 @include respon-to("small") {

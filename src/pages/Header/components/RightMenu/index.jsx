@@ -1,8 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
-
+import {
+  faCircleUser,
+  faRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
+faRightFromBracket;
 const RightMenu = () => {
   const navigate = useNavigate();
   const handleLogin = () => {
@@ -15,7 +18,10 @@ const RightMenu = () => {
         <FontAwesomeIcon icon={faCircleUser} className="iconUser" />
         <div>Login</div>
       </button>
-      <div>Logout</div>
+      <button className="btnLogout">
+        Logout
+        <FontAwesomeIcon icon={faRightFromBracket} className="iconUser" />
+      </button>
     </div>
   );
 };
