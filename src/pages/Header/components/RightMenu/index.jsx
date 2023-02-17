@@ -5,20 +5,36 @@ import {
   faCircleUser,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
-faRightFromBracket;
+import { useDispatch, useSelector } from "react-redux";
+import { usersReceived } from "../../../../feature/user/userSlice";
+import { isEmpty } from "../../../../utils/ultils";
+import { logout } from "../../../../services/firebase";
+
 const RightMenu = () => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
+
   const navigate = useNavigate();
+
   const handleLogin = () => {
     navigate("/login");
   };
 
+  const handleLogout = () => {
+    logout();
+    dispatch(usersReceived({}));
+  };
+
   return (
     <div className="rightMenu">
-      <button className="btnLogin" onClick={handleLogin}>
-        <FontAwesomeIcon icon={faCircleUser} className="iconUser" />
-        <div>Login</div>
-      </button>
-      <button className="btnLogout">
+      {isEmpty(user) ? (
+        <button className="btnLogin" onClick={handleLogin}>
+          <FontAwesomeIcon icon={faCircleUser} className="iconUser" />
+          <div>Login</div>
+        </button>
+      ) : null}
+
+      <button className="btnLogout" onClick={handleLogout}>
         Logout
         <FontAwesomeIcon icon={faRightFromBracket} className="iconUser" />
       </button>

@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import Logo from "../../assets/img/web-logo.png";
 import GoogleIcon from "../../assets/img/google-icon.png";
 import { signInWithGoogle } from "../../services/firebase";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { usersReceived } from "../../feature/user/userSlice";
+import { isEmpty } from "../../utils/ultils";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const { user } = useSelector((state) => state.user);
+  console.log("🚀 ~ user", user);
   const layout = {
     labelCol: {
       span: 24,
@@ -37,6 +43,20 @@ const Login = () => {
   const handleSignUp = () => {
     navigate("/sign-up");
   };
+
+  const handleSignInWithGoogle = async () => {
+    const res = await signInWithGoogle();
+
+    if (!isEmpty(res?.user)) {
+      dispatch(usersReceived(res?.user));
+    }
+  };
+
+  useEffect(() => {
+    if (!isEmpty(user)) {
+      navigate("/");
+    }
+  }, [JSON.stringify(user)]);
 
   return (
     <div className="Login">
@@ -92,7 +112,7 @@ const Login = () => {
         </Form.Item>
 
         <div className="footer">
-          <Button className="btnGoogle" onClick={signInWithGoogle}>
+          <Button className="btnGoogle" onClick={handleSignInWithGoogle}>
             <img src={GoogleIcon} alt="" />
             <span>Google Login</span>
           </Button>

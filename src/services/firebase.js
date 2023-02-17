@@ -7,7 +7,7 @@ import {
   //   signInWithEmailAndPassword,
   //createUserWithEmailAndPassword,
   //   sendPasswordResetEmail,
-  // signOut,
+  signOut,
 } from "firebase/auth";
 import { FIREBASE_CONFIG } from "../utils/firebase";
 import {
@@ -27,8 +27,9 @@ const googleProvider = new GoogleAuthProvider();
 const db = getFirestore(app);
 
 export const signInWithGoogle = async () => {
+  let res = {};
   try {
-    const res = await signInWithPopup(auth, googleProvider);
+    res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
@@ -42,8 +43,8 @@ export const signInWithGoogle = async () => {
     }
   } catch (err) {
     console.error(err);
-    alert(err.message);
   }
+  return res;
 };
 
 // const logInWithEmailAndPassword = async (email, password) => {
@@ -81,9 +82,9 @@ export const signInWithGoogle = async () => {
 //     }
 //   };
 
-// const logout = () => {
-//     signOut(auth);
-//   };
+export const logout = () => {
+  signOut(auth);
+};
 
 export const auth = getAuth(app);
 
