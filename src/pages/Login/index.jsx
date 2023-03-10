@@ -7,14 +7,14 @@ import GoogleIcon from "../../assets/img/google-icon.png";
 import { signInWithGoogle } from "../../services/firebase";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { usersReceived } from "../../feature/user/userSlice";
+import { usersReceived, usersLoading } from "../../feature/user/userSlice";
 import { isEmpty } from "../../utils/ultils";
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
-  console.log("🚀 ~ user", user);
+
   const layout = {
     labelCol: {
       span: 24,
@@ -45,11 +45,10 @@ const Login = () => {
   };
 
   const handleSignInWithGoogle = async () => {
+    dispatch(usersLoading());
     const res = await signInWithGoogle();
-
-    if (!isEmpty(res?.user)) {
-      dispatch(usersReceived(res?.user));
-    }
+    dispatch(usersReceived(res?.user));
+    localStorage.setItem("user", JSON.stringify(res?.user));
   };
 
   useEffect(() => {

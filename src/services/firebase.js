@@ -31,6 +31,7 @@ export const signInWithGoogle = async () => {
   try {
     res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
+    console.log("🚀 ~ user", user);
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
     if (docs.docs.length === 0) {
@@ -82,8 +83,12 @@ export const signInWithGoogle = async () => {
 //     }
 //   };
 
-export const logout = () => {
-  signOut(auth);
+export const logout = async () => {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    console.log("🚀 ~ error", error);
+  }
 };
 
 export const auth = getAuth(app);
